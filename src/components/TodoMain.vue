@@ -9,7 +9,7 @@
         <div class="view">
           <input class="toggle" type="checkbox" :checked="item.done" />
           <label>{{ item.name }}</label>
-          <button class="destroy"></button>
+          <button class="destroy" @click="delTodo(item.id)"></button>
         </div>
         <input class="edit" value="Create a TodoMVC template" />
       </li>
@@ -21,7 +21,7 @@ import { storeToRefs } from 'pinia'
 import useStore from '../store'
 
 const { main } = useStore()
-const { getTodos } = main
+const { getTodos, delTodo } = main
 getTodos()
 
 const { list } = storeToRefs(main)
