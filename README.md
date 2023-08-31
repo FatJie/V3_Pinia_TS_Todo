@@ -644,6 +644,10 @@ import TodoFooter from './components/TodoFooter.vue'
 
 ## 跑通 Pinia
 
+```
+yarn add pinia
+```
+
 `src/main.ts`
 
 ```ts

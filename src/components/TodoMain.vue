@@ -25,7 +25,10 @@
   </section>
 </template>
 <script setup lang='ts'>
+import useStore from '../store'
 
+const { main } = useStore()
+console.log(main)
 </script>
 
 <style lang='scss' scoped></style>
