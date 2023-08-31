@@ -8,7 +8,7 @@ Vue3 + TS + Pinia => TodoMVC
 npm create vite
 ```
 
-[静态结构](https://github.com/tastejs/todomvc-app-template)
+[静态结构](https://gitee.com/ifercarly/v3tspinia)
 
 ### `src/App.vue`
 
