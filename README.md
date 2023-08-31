@@ -711,6 +711,10 @@ export default useFooterStore
 
 ## 列表渲染
 
+```
+yarn global add json-server
+```
+
 ### 准备接口
 
 `data.json`
