@@ -7,7 +7,7 @@
       <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
       <li :class="{ completed: item.done }" v-for="item in list" :key="item.id">
         <div class="view">
-          <input class="toggle" type="checkbox" :checked="item.done" />
+          <input class="toggle" type="checkbox" :checked="item.done" @change="updateToodo(item.id, 'done', !item.done)" />
           <label>{{ item.name }}</label>
           <button class="destroy" @click="delTodo(item.id)"></button>
         </div>
@@ -21,7 +21,7 @@ import { storeToRefs } from 'pinia'
 import useStore from '../store'
 
 const { main } = useStore()
-const { getTodos, delTodo } = main
+const { getTodos, delTodo, updateToodo } = main
 getTodos()
 
 const { list } = storeToRefs(main)

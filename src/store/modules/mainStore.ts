@@ -18,7 +18,19 @@ const mainStore = defineStore("main", {
     async delTodo(id: number) {
       await request.delete(`/${id}`)
       this.getTodos()
-    }
+    },
+    /**
+     * 更新数据
+     * @param id 根据id来更新
+     * @param key 更新谁
+     * @param value 更新的值为什么
+     */
+    async updateToodo(id: number, key: string, value: string | boolean) {
+      await request.patch(`/${id}`, {
+        [key]: value
+      })
+      this.getTodos()
+    },
   },
 });
 
