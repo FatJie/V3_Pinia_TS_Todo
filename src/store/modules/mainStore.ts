@@ -31,7 +31,27 @@ const mainStore = defineStore("main", {
       })
       this.getTodos()
     },
+    // 添加数据
+    async addTodo(name: string) {
+      await request.post('/', {
+        name,
+        done: false
+      })
+      this.getTodos()
+    },
+    async updateAllRadiosStatus(done: boolean) {
+      const arrPromise = await this.list.map(item => {
+        return this.updateToodo(item.id, 'done', done)
+      })
+      Promise.all(arrPromise)
+      this.getTodos()
+    }
   },
+  getters: {
+    allRadiosStatus(state) {
+      return state.list.every(item => item.done)
+    }
+  }
 });
 
 export default mainStore;
