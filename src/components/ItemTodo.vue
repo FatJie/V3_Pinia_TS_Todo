@@ -43,8 +43,6 @@ const handelKeyUp = (e: KeyboardEvent) => {
   } else if(e.key === 'Escape') {
     hanleBlur()
     return
-  } else {
-
   }
 }
 </script>

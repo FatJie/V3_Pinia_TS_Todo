@@ -45,11 +45,27 @@ const mainStore = defineStore("main", {
       })
       Promise.all(arrPromise)
       this.getTodos()
+    },
+    // 清空已完成
+    async clearCompleted() {
+      const arrPromise = await this.completed.map(item => {
+        return this.delTodo(item.id)
+      })
+      Promise.all(arrPromise)
+      this.getTodos()
     }
   },
   getters: {
     allRadiosStatus(state) {
       return state.list.every(item => item.done)
+    },
+    // 已完成的todo
+    completed(state) {
+      return state.list.filter(item => item.done)
+    },
+    // 未完成的todo
+    unCompleted(state) {
+      return state.list.filter(item => !item.done)
     }
   }
 });

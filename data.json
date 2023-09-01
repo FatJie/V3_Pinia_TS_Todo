@@ -9,11 +9,6 @@
       "id": 2,
       "name": "写代码",
       "done": false
-    },
-    {
-      "name": "睡觉",
-      "done": false,
-      "id": 3
     }
   ]
 }
