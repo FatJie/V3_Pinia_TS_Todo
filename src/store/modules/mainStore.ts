@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import request from "../../utils/request";
 import { ITodoItem } from '../../types/data.d'
+import footerStore from "./footerStore";
 
 const mainStore = defineStore("main", {
   state: () => {
@@ -66,6 +67,19 @@ const mainStore = defineStore("main", {
     // 未完成的todo
     unCompleted(state) {
       return state.list.filter(item => !item.done)
+    },
+    /**
+     * 根据 active 渲染列表
+     */
+    renderList(state) {
+      const active = footerStore().active
+      if (active === 'Active') {
+        return state.list.filter(item => !item.done)
+      } else if (active === 'Completed') {
+        return state.list.filter(item => item.done)
+      } else {
+        return state.list
+      }
     }
   }
 });

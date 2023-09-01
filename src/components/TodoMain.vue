@@ -3,7 +3,7 @@
     <input id="toggle-all" class="toggle-all" type="checkbox" :checked="allRadiosStatus" @change="updateAllRadiosStatus(!allRadiosStatus)" />
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
-      <ItemTodo v-for="item in list" :key="item.id" :item="item" />
+      <ItemTodo v-for="item in renderList" :key="item.id" :item="item" />
     </ul>
   </section>
 </template>
@@ -16,7 +16,7 @@ const { main } = useStore()
 const { getTodos, updateAllRadiosStatus } = main
 getTodos()
 
-const { list, allRadiosStatus } = storeToRefs(main)
+const { renderList, allRadiosStatus } = storeToRefs(main)
 </script>
 
 <style lang='scss' scoped></style>
